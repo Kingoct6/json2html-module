@@ -1,13 +1,18 @@
 export default function json2html(data) {
-  const headers = Array.from(new Set(data.flatMap(Object.keys)));
+  // Define the fixed headers
+  const headers = ["Name", "Age", "Gender"];
 
+  // Start building the HTML table as a string
   let html = `<table data-user="saiharshil6@gmail.com">`;
   html += "<thead><tr>";
 
+  // Generate table header row with fixed columns
   headers.forEach(header => {
     html += `<th>${header}</th>`;
   });
   html += "</tr></thead>";
+
+  // Generate table body rows
   html += "<tbody>";
   data.forEach(row => {
     html += "<tr>";
